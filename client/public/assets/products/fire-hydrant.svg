@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hydrantGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8E1B1B" />
+      <stop offset="35%" stop-color="#D32F2F" />
+      <stop offset="65%" stop-color="#E53935" />
+      <stop offset="100%" stop-color="#7B1414" />
+    </linearGradient>
+    <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="40%" stop-color="#F5D77F" />
+      <stop offset="80%" stop-color="#AA8012" />
+      <stop offset="100%" stop-color="#664D00" />
+    </linearGradient>
+    <filter id="hydrantShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="200" cy="465" rx="110" ry="16" fill="#000" opacity="0.15" />
+
+  <g filter="url(#hydrantShadow)">
+    <!-- Base Flange -->
+    <ellipse cx="200" cy="445" rx="90" ry="16" fill="#1A1A1A" />
+    <rect x="110" y="425" width="180" height="20" fill="#333" rx="4" />
+    <!-- Bolts -->
+    <circle cx="130" cy="435" r="4" fill="#888" />
+    <circle cx="160" cy="438" r="4" fill="#888" />
+    <circle cx="200" cy="440" r="4" fill="#888" />
+    <circle cx="240" cy="438" r="4" fill="#888" />
+    <circle cx="270" cy="435" r="4" fill="#888" />
+
+    <!-- Lower Barrel -->
+    <path d="M140,260 L140,425 L260,425 L260,260 Z" fill="url(#hydrantGrad)" />
+    
+    <!-- Middle Flange Ring -->
+    <rect x="130" y="245" width="140" height="18" fill="url(#hydrantGrad)" stroke="#661111" stroke-width="1.5" rx="4" />
+    
+    <!-- Upper Body -->
+    <path d="M145,150 L145,245 L255,245 L255,150 Z" fill="url(#hydrantGrad)" />
+    
+    <!-- Top Bonnet (Dome) -->
+    <path d="M135,150 Q135,100 200,95 Q265,100 265,150 Z" fill="url(#hydrantGrad)" />
+    
+    <!-- Operating Stem & Handwheel on Top -->
+    <rect x="192" y="65" width="16" height="32" fill="url(#brassGrad)" rx="2" />
+    <ellipse cx="200" cy="65" rx="42" ry="12" fill="url(#brassGrad)" stroke="#4A3B00" stroke-width="2" />
+    <ellipse cx="200" cy="65" rx="20" ry="6" fill="#888" />
+
+    <!-- Left Landing Valve / Outlet -->
+    <path d="M145,190 L95,195 L95,235 L145,230 Z" fill="url(#hydrantGrad)" />
+    <rect x="80" y="190" width="20" height="50" fill="url(#brassGrad)" rx="3" />
+    <ellipse cx="80" cy="215" rx="8" ry="25" fill="#111" stroke="url(#brassGrad)" stroke-width="3" />
+    <!-- Cap chain -->
+    <path d="M90,238 Q115,280 145,260" fill="none" stroke="#D4AF37" stroke-width="2" stroke-dasharray="3,3" />
+
+    <!-- Right Landing Valve / Outlet -->
+    <path d="M255,190 L305,195 L305,235 L255,230 Z" fill="url(#hydrantGrad)" />
+    <rect x="300" y="190" width="20" height="50" fill="url(#brassGrad)" rx="3" />
+    <ellipse cx="320" cy="215" rx="8" ry="25" fill="#111" stroke="url(#brassGrad)" stroke-width="3" />
+    <path d="M310,238 Q285,280 255,260" fill="none" stroke="#D4AF37" stroke-width="2" stroke-dasharray="3,3" />
+
+    <!-- Center Emblem -->
+    <circle cx="200" cy="205" r="24" fill="#111111" stroke="#F5B400" stroke-width="2" />
+    <text x="200" y="212" font-family="'Outfit', sans-serif" font-weight="900" font-size="16" fill="#F5B400" text-anchor="middle">FIRE</text>
+  </g>
+</svg>

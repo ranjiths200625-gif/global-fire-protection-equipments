@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#F3F4F6" rx="16" />
+  <circle cx="200" cy="220" r="60" fill="#E5E7EB" />
+  <path d="M200 180 C194 190 182 200 182 216 C182 228 190 238 200 238 C210 238 218 228 218 216 C218 202 208 192 200 180 Z" fill="#C62828" />
+  <text x="200" y="320" font-family="'Inter', sans-serif" font-weight="600" font-size="16" fill="#6B7280" text-anchor="middle">Fire Protection Equipment</text>
+  <text x="200" y="344" font-family="'Inter', sans-serif" font-size="13" fill="#9CA3AF" text-anchor="middle">Global Fire Protection Equipments</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8E1B1B" />
+      <stop offset="35%" stop-color="#D32F2F" />
+      <stop offset="65%" stop-color="#E53935" />
+      <stop offset="100%" stop-color="#7B1414" />
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#333333" />
+      <stop offset="50%" stop-color="#777777" />
+      <stop offset="100%" stop-color="#222222" />
+    </linearGradient>
+    <linearGradient id="hornGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A1A" />
+      <stop offset="60%" stop-color="#333333" />
+      <stop offset="100%" stop-color="#0A0A0A" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Ground shadow -->
+  <ellipse cx="200" cy="465" rx="90" ry="14" fill="#000" opacity="0.15" />
+
+  <!-- Cylinder Body -->
+  <g filter="url(#shadow)">
+    <!-- Main Cylinder -->
+    <path d="M140,150 Q140,110 200,110 Q260,110 260,150 L260,410 Q260,440 200,440 Q140,440 140,410 Z" fill="url(#bodyGrad)" />
+    
+    <!-- Base Ring -->
+    <path d="M135,410 Q135,445 200,445 Q265,445 265,410 L265,430 Q265,450 200,450 Q135,450 135,430 Z" fill="#1A1A1A" />
+    
+    <!-- CO2 Label (Black Band) -->
+    <rect x="140" y="210" width="120" height="90" fill="#111111" />
+    <rect x="140" y="206" width="120" height="4" fill="#F5B400" />
+    <rect x="140" y="300" width="120" height="4" fill="#F5B400" />
+    <text x="200" y="245" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">CO₂</text>
+    <text x="200" y="270" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#CCCCCC" text-anchor="middle" letter-spacing="1">FIRE EXTINGUISHER</text>
+    <text x="200" y="286" font-family="'Inter', sans-serif" font-size="9" fill="#999999" text-anchor="middle">CARBON DIOXIDE</text>
+  </g>
+
+  <!-- Valve Assembly & Lever -->
+  <!-- Neck -->
+  <rect x="188" y="90" width="24" height="25" fill="url(#metalGrad)" rx="2" />
+  <!-- Valve Block -->
+  <rect x="180" y="72" width="40" height="22" fill="url(#metalGrad)" rx="4" />
+  
+  <!-- Carrying Handle (Bottom) -->
+  <path d="M175,76 L120,86 Q115,88 120,95 L175,85 Z" fill="#222" />
+  
+  <!-- Operating Lever (Top) -->
+  <path d="M185,72 L115,50 Q110,48 116,42 L185,62 Z" fill="#C62828" stroke="#8E1B1B" stroke-width="1.5" />
+  
+  <!-- Safety Pin & Pull Ring -->
+  <circle cx="160" cy="67" r="8" fill="none" stroke="#F5B400" stroke-width="3" />
+  <line x1="168" y1="67" x2="190" y2="67" stroke="#F5B400" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Discharge Horn (characteristic of CO2) -->
+  <path d="M215,80 Q250,85 265,110 L285,160 Q290,175 305,185 L320,195 Q325,200 318,206 L285,215 Q278,212 280,200 L260,140 Q245,105 215,92 Z" fill="url(#hornGrad)" filter="url(#shadow)" />
+  <ellipse cx="305" cy="208" rx="18" ry="10" transform="rotate(-30 305 208)" fill="#000" stroke="#333" stroke-width="2" />
+</svg>

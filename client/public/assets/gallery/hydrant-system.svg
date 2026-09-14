@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hydSysBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111111" />
+      <stop offset="100%" stop-color="#1A1A1A" />
+    </linearGradient>
+    <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8E1B1B" />
+      <stop offset="50%" stop-color="#DC2626" />
+      <stop offset="100%" stop-color="#7B1414" />
+    </linearGradient>
+    <radialGradient id="reelGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#B91C1C" />
+      <stop offset="70%" stop-color="#7F1D1D" />
+      <stop offset="100%" stop-color="#450A0A" />
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" rx="20" fill="url(#hydSysBg)" />
+  <rect x="2" y="2" width="796" height="596" rx="18" fill="none" stroke="#333" stroke-width="2" />
+
+  <!-- Wall mounting plate -->
+  <rect x="100" y="60" width="600" height="480" rx="12" fill="#1C1C1C" stroke="#2D2D2D" stroke-width="2" />
+  
+  <!-- Title Badge -->
+  <rect x="130" y="85" width="540" height="45" rx="8" fill="#111" stroke="#333" />
+  <text x="400" y="114" font-family="'Outfit', sans-serif" font-weight="800" font-size="16" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.5">FIRE HYDRANT &amp; HOSE REEL SYSTEM OVERVIEW</text>
+
+  <!-- Main Riser Red Pipe -->
+  <rect x="160" y="150" width="45" height="350" fill="url(#pipeGrad)" stroke="#551111" stroke-width="2" rx="4" />
+  <!-- Pipe Flanges & Bolts -->
+  <rect x="150" y="200" width="65" height="15" fill="#444" rx="3" />
+  <rect x="150" y="380" width="65" height="15" fill="#444" rx="3" />
+
+  <!-- Hydrant Landing Valve (Branching off pipe) -->
+  <path d="M205,250 L270,250 L270,290 L205,290 Z" fill="url(#pipeGrad)" />
+  <rect x="270" y="240" width="30" height="60" fill="#D4AF37" rx="4" />
+  <circle cx="285" cy="225" r="18" fill="#B45309" stroke="#78350F" stroke-width="3" />
+  <ellipse cx="300" cy="270" rx="6" ry="18" fill="#111" stroke="#D4AF37" stroke-width="2" />
+  <text x="250" y="330" font-family="'Inter', sans-serif" font-size="12" fill="#F5B400" font-weight="600">Landing Valve</text>
+
+  <!-- Hose Reel Drum -->
+  <g transform="translate(480, 270)">
+    <circle cx="0" cy="0" r="110" fill="url(#reelGrad)" stroke="#111" stroke-width="6" />
+    <circle cx="0" cy="0" r="85" fill="none" stroke="#DC2626" stroke-width="12" stroke-dasharray="8,6" />
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#DC2626" stroke-width="12" stroke-dasharray="8,6" />
+    <circle cx="0" cy="0" r="35" fill="#111" stroke="#D4AF37" stroke-width="4" />
+    <circle cx="0" cy="0" r="14" fill="#D4AF37" />
+    <text x="0" y="145" font-family="'Inter', sans-serif" font-size="13" fill="#FFF" font-weight="600" text-anchor="middle">Fire Hose Reel Station</text>
+  </g>
+
+  <!-- Connecting Line from pipe to reel -->
+  <path d="M205,180 Q320,180 370,270" fill="none" stroke="url(#pipeGrad)" stroke-width="16" />
+
+  <!-- Discharge Branchpipe & Jet Spray Nozzle -->
+  <path d="M570,330 Q620,380 640,430" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" />
+  <rect x="630" y="420" width="22" height="40" fill="#D4AF37" rx="3" transform="rotate(25 630 420)" />
+  <text x="640" y="490" font-family="'Inter', sans-serif" font-size="12" fill="#AAA" font-weight="500" text-anchor="middle">Jet Spray Nozzle</text>
+</svg>

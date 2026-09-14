@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased font-sans selection:bg-brand-700 selection:text-white;
+    overflow-x: hidden;
+    min-width: 320px;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F1F5F9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C62828;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+  }
+
+  .glass-header {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  }
+
+  .glow-red {
+    box-shadow: 0 10px 25px -5px rgba(198, 40, 40, 0.25);
+  }
+
+  .text-gradient-red {
+    background: linear-gradient(135deg, #C62828 0%, #E53935 50%, #991B1B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-pattern-light {
+    background-image: radial-gradient(rgba(198, 40, 40, 0.08) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
+  }
+}
+
+/* ==========================================================================
+   Comprehensive Responsive Media Queries for All Devices
+   ========================================================================== */
+
+/* 1. Extra Small Mobile Devices (iPhone SE, Galaxy A Series, etc. - Width < 480px) */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem !important;
+    line-height: 1.25 !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+
+  h3 {
+    font-size: 1.15rem !important;
+  }
+
+  /* Compact button paddings for tight screens */
+  button, a.btn {
+    padding-left: 0.875rem !important;
+    padding-right: 0.875rem !important;
+    min-height: 44px; /* Accessible touch target */
+  }
+
+  /* Prevent container edge overflows */
+  .max-w-7xl, .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Full width modals on mobile */
+  .modal-box {
+    margin: 0.5rem !important;
+    padding: 1.25rem !important;
+    max-height: 88vh !important;
+  }
+}
+
+/* 2. Standard Mobile & Phablets (481px to 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  h1 {
+    font-size: 2.25rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .max-w-7xl {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
+
+/* 3. Tablets in Portrait & Landscape (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .hero-grid {
+    gap: 2rem !important;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* 4. Laptops & Standard Desktops (1025px to 1440px) */
+@media screen and (min-width: 1025px) {
+  .hero-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* 5. Extra Large & 4K Displays (> 1440px) */
+@media screen and (min-width: 1441px) {
+  .max-w-7xl {
+    max-width: 1360px !important;
+  }
+}
+
+/* 6. Touch-Specific & Safe-Area Adjustments (iOS Notch & Bottom Bar) */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .fixed.bottom-0 {
+    padding-bottom: max(0.625rem, env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* 7. High Contrast & Print Media Support */
+@media print {
+  header, footer, .fixed, button {
+    display: none !important;
+  }
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+}
