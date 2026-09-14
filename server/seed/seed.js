@@ -204,7 +204,7 @@ const seedDatabase = async () => {
       state: 'Tamil Nadu',
       phone: '', // Business owner can add their actual phone
       whatsapp: '', // Business owner can add their actual WhatsApp
-      email: '', // Business owner can add their actual email
+      email: 'ranjiths200625@gmail.com', // Configured business email
       googleMapsUrl: 'https://maps.google.com/?q=Kadalaur+Road,+Kovilpatti,+Tamil+Nadu',
       workingHours: 'Monday - Saturday: 9:00 AM - 7:00 PM',
       description:
