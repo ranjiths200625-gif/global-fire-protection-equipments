@@ -202,8 +202,8 @@ const seedDatabase = async () => {
       address: 'Kadalaur Road, Kovilpatti, Tamil Nadu, India',
       city: 'Kovilpatti',
       state: 'Tamil Nadu',
-      phone: '', // Business owner can add their actual phone
-      whatsapp: '', // Business owner can add their actual WhatsApp
+      phone: '+91 97517 80504',
+      whatsapp: '9751780504',
       email: 'ranjiths200625@gmail.com', // Configured business email
       googleMapsUrl: 'https://maps.google.com/?q=Kadalaur+Road,+Kovilpatti,+Tamil+Nadu',
       workingHours: 'Monday - Saturday: 9:00 AM - 7:00 PM',
