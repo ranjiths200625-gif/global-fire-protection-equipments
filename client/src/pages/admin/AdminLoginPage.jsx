@@ -40,9 +40,11 @@ const AdminLoginPage = () => {
         {/* Brand Header */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-3 mb-3">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center shadow-lg shadow-red-500/20">
-              <Flame className="w-6 h-6 text-white" />
-            </div>
+            <img
+              src="/assets/logo.png"
+              alt="Global Fire Safety Equipments Logo"
+              className="h-16 w-auto object-contain drop-shadow-md"
+            />
             <div className="text-left">
               <span className="font-heading font-black text-slate-900 text-lg block leading-tight">
                 GLOBAL FIRE

@@ -75,15 +75,17 @@ const Navbar = ({ onOpenEnquiry }) => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                <Flame className="w-6 h-6 text-white" />
-              </div>
+              <img
+                src="/assets/logo.png"
+                alt="Global Fire Safety Equipments Logo"
+                className="h-12 sm:h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform"
+              />
               <div className="flex flex-col">
                 <span className="font-heading font-black text-lg sm:text-xl tracking-tight text-slate-900 leading-tight">
                   GLOBAL FIRE
                 </span>
                 <span className="text-[10px] sm:text-xs font-bold tracking-wider text-brand-700 uppercase">
-                  Protection Equipments
+                  Safety Equipments
                 </span>
               </div>
             </Link>

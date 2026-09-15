@@ -14,15 +14,17 @@ const Footer = () => {
           {/* Col 1: Brand & Overview */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center shadow-md">
-                <Flame className="w-5 h-5 text-white" />
-              </div>
+              <img
+                src="/assets/logo.png"
+                alt="Global Fire Safety Equipments Logo"
+                className="h-12 w-auto object-contain drop-shadow-md bg-white p-1 rounded-xl"
+              />
               <div className="flex flex-col">
                 <span className="font-heading font-black text-white text-base leading-tight">
                   GLOBAL FIRE
                 </span>
                 <span className="text-[10px] font-bold tracking-wider uppercase text-brand-400">
-                  Protection Equipments
+                  Safety Equipments
                 </span>
               </div>
             </div>
