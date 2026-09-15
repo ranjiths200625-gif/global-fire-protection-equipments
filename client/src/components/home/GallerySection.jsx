@@ -6,39 +6,27 @@ import Lightbox from '../common/Lightbox';
 const fallbackGallery = [
   {
     _id: 'g1',
-    title: 'CO₂ Fire Extinguisher Unit',
-    image: '/assets/products/co2-extinguisher.svg',
+    title: 'Portable Fire Extinguishers Lineup',
+    image: '/assets/products/fire-extinguishers.jpg',
     category: 'Fire Extinguishers',
   },
   {
     _id: 'g2',
-    title: 'ABC Dry Chemical Powder Unit',
-    image: '/assets/products/abc-powder-extinguisher.svg',
-    category: 'Fire Extinguishers',
-  },
-  {
-    _id: 'g3',
-    title: 'Water & Foam Extinguishers',
-    image: '/assets/products/foam-extinguisher.svg',
-    category: 'Fire Extinguishers',
-  },
-  {
-    _id: 'g4',
-    title: 'Fire Hydrant Landing Valve & Hose Reel',
-    image: '/assets/products/fire-hydrant.svg',
+    title: 'Double-Door Fire Hose Box',
+    image: '/assets/products/fire-hose-box.jpg',
     category: 'Fire Hydrant Equipment',
   },
   {
-    _id: 'g5',
-    title: 'Basic Extinguisher Operation Method (P.A.S.S.)',
-    image: '/assets/gallery/operation-guide.svg',
-    category: 'Fire Extinguisher Operation',
+    _id: 'g3',
+    title: 'Wall-Mounted Fire Hose Reel Drum',
+    image: '/assets/products/fire-hose-reel.jpg',
+    category: 'Fire Hydrant Equipment',
   },
   {
-    _id: 'g6',
-    title: 'Industrial Fire Hydrant Connection Setup',
-    image: '/assets/gallery/hydrant-system.svg',
-    category: 'Fire Protection Systems',
+    _id: 'g4',
+    title: 'Fire Extinguisher Operation Method (P.A.S.S. Guide)',
+    image: '/assets/products/fire-extinguisher-operation-sign.jpg',
+    category: 'Fire Extinguisher Operation',
   },
 ];
 
@@ -47,7 +35,6 @@ const CATEGORIES = [
   'Fire Extinguishers',
   'Fire Extinguisher Operation',
   'Fire Hydrant Equipment',
-  'Fire Protection Systems',
 ];
 
 const GallerySection = () => {

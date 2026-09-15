@@ -25,7 +25,14 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, 'Please specify a category'],
-      enum: ['Fire Extinguishers', 'Fire Hydrant Systems', 'Fire Safety Equipment', 'Accessories'],
+      enum: [
+        'Fire Extinguishers',
+        'Fire Hydrant Systems',
+        'Fire Safety Equipment',
+        'Fire Safety Signage',
+        'Safety Signage',
+        'Accessories',
+      ],
       default: 'Fire Extinguishers',
     },
     features: {

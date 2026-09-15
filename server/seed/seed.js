@@ -38,81 +38,46 @@ const seedDatabase = async () => {
     });
     console.log(`[Seed] Created default admin: ${defaultAdmin.email} (Password: Admin@12345)`);
 
-    // 2. Create Products (strictly truthful, legal-safe, no unverified claims)
+    // 2. Create Products (strictly truthful, legal-safe, only the 4 requested items with concise descriptions)
     const initialProducts = [
       {
-        name: 'CO₂ Fire Extinguishers',
-        slug: 'co2-fire-extinguishers',
+        name: 'Fire Extinguishers',
+        slug: 'fire-extinguishers',
         category: 'Fire Extinguishers',
         description:
-          'CO₂ fire extinguishers are available for suitable applications. Contact us to discuss the appropriate equipment for your needs.',
-        image: '/assets/products/co2-extinguisher.svg',
-        features: [
-          'Suitable for electrical hazard areas',
-          'Clean agent leaving no residue',
-          'Durable discharge horn and cylinder',
-          'Multiple capacity options available',
-        ],
+          'Portable fire extinguishers available in Powder, Water, Foam, CO₂, and Wet Chemical types for complete fire safety.',
+        image: '/assets/products/fire-extinguishers.jpg',
+        features: ['Powder, Water, Foam, CO₂, and Wet Chemical types', 'Suitable for domestic, commercial & industrial use'],
         active: true,
       },
       {
-        name: 'ABC Dry Chemical Powder Fire Extinguishers',
-        slug: 'abc-dry-chemical-powder-fire-extinguishers',
-        category: 'Fire Extinguishers',
-        description:
-          'ABC dry chemical powder fire extinguishers for suitable fire protection applications.',
-        image: '/assets/products/abc-powder-extinguisher.svg',
-        features: [
-          'Multipurpose fire extinguishing agent',
-          'Easy-to-read pressure gauge',
-          'Robust safety pin and squeeze mechanism',
-          'Suitable for commercial and industrial spaces',
-        ],
-        active: true,
-      },
-      {
-        name: 'Water Type Fire Extinguishers',
-        slug: 'water-type-fire-extinguishers',
-        category: 'Fire Extinguishers',
-        description:
-          'Water-based fire extinguishing equipment for suitable applications.',
-        image: '/assets/products/water-extinguisher.svg',
-        features: [
-          'Effective cooling action for combustible materials',
-          'Corrosion-resistant internal lining',
-          'Simple operation nozzle and trigger',
-          'Contact us for capacity and sizing guidance',
-        ],
-        active: true,
-      },
-      {
-        name: 'Foam Type Fire Extinguishers',
-        slug: 'foam-type-fire-extinguishers',
-        category: 'Fire Extinguishers',
-        description:
-          'Foam fire extinguishing equipment for suitable applications.',
-        image: '/assets/products/foam-extinguisher.svg',
-        features: [
-          'Forms a blanketing film over liquid surfaces',
-          'Dual cooling and smothering effect',
-          'Standard safety pin and valve assembly',
-          'Suitable for workshops, garages, and storage areas',
-        ],
-        active: true,
-      },
-      {
-        name: 'Fire Hydrant Systems',
-        slug: 'fire-hydrant-systems',
+        name: 'Fire Hose Box',
+        slug: 'fire-hose-box',
         category: 'Fire Hydrant Systems',
         description:
-          'Fire hydrant system equipment and related services. Contact us for requirements and installation/service discussion.',
-        image: '/assets/products/fire-hydrant.svg',
-        features: [
-          'Hydrant landing valves and coupling accessories',
-          'Reinforced delivery fire hoses & branch pipes',
-          'Hydrant cabinet and hose reel integration',
-          'Inspection, testing, and periodic servicing support',
-        ],
+          'Heavy-duty dual-door red cabinet designed to safely store delivery fire hoses and branch pipes.',
+        image: '/assets/products/fire-hose-box.jpg',
+        features: ['Double-door glass front design', 'Weatherproof and durable steel construction'],
+        active: true,
+      },
+      {
+        name: 'Fire Hose Reel',
+        slug: 'fire-hose-reel',
+        category: 'Fire Hydrant Systems',
+        description:
+          'Wall-mounted fire hose reel drum system for immediate water supply and emergency fire fighting.',
+        image: '/assets/products/fire-hose-reel.jpg',
+        features: ['High-flow rotary drum mechanism', 'Wall-mounted with quick-action valve'],
+        active: true,
+      },
+      {
+        name: 'Fire Extinguisher Operation Method Sign Board',
+        slug: 'fire-extinguisher-operation-sign-board',
+        category: 'Safety Signage',
+        description:
+          'Bilingual (English & Tamil) P.A.S.S. method step-by-step operating instruction sign board.',
+        image: '/assets/products/fire-extinguisher-operation-sign.jpg',
+        features: ['Bilingual Tamil & English instructions', 'Clear P.A.S.S. visual diagram'],
         active: true,
       },
     ];
@@ -162,34 +127,24 @@ const seedDatabase = async () => {
     // 4. Create Gallery Items
     const initialGallery = [
       {
-        title: 'CO₂ Fire Extinguisher Unit',
-        image: '/assets/products/co2-extinguisher.svg',
+        title: 'Portable Fire Extinguishers Lineup',
+        image: '/assets/products/fire-extinguishers.jpg',
         category: 'Fire Extinguishers',
       },
       {
-        title: 'ABC Dry Chemical Powder Unit',
-        image: '/assets/products/abc-powder-extinguisher.svg',
-        category: 'Fire Extinguishers',
-      },
-      {
-        title: 'Water & Foam Extinguishers',
-        image: '/assets/products/foam-extinguisher.svg',
-        category: 'Fire Extinguishers',
-      },
-      {
-        title: 'Fire Hydrant Landing Valve & Hose Reel',
-        image: '/assets/products/fire-hydrant.svg',
+        title: 'Double-Door Fire Hose Box',
+        image: '/assets/products/fire-hose-box.jpg',
         category: 'Fire Hydrant Equipment',
       },
       {
-        title: 'Basic Extinguisher Operation Method (P.A.S.S.)',
-        image: '/assets/gallery/operation-guide.svg',
-        category: 'Fire Extinguisher Operation',
+        title: 'Wall-Mounted Fire Hose Reel Drum',
+        image: '/assets/products/fire-hose-reel.jpg',
+        category: 'Fire Hydrant Equipment',
       },
       {
-        title: 'Industrial Fire Hydrant Connection Setup',
-        image: '/assets/gallery/hydrant-system.svg',
-        category: 'Fire Protection Systems',
+        title: 'Fire Extinguisher Operation Method (P.A.S.S. Guide)',
+        image: '/assets/products/fire-extinguisher-operation-sign.jpg',
+        category: 'Fire Extinguisher Operation',
       },
     ];
 

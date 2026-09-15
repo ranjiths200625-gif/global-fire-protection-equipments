@@ -133,20 +133,20 @@ const Hero = ({ onOpenEnquiry }) => {
               <div className="relative my-auto w-48 sm:w-56 h-64 sm:h-72 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
                 <div className="absolute inset-0 bg-red-100/40 rounded-full blur-2xl -z-10" />
                 <img
-                  src="/assets/products/co2-extinguisher.svg"
-                  alt="CO2 Fire Extinguisher Unit"
-                  className="max-h-full max-w-full drop-shadow-xl object-contain"
+                  src="/assets/products/fire-extinguishers.jpg"
+                  alt="Fire Extinguishers Lineup"
+                  className="max-h-full max-w-full drop-shadow-xl object-contain rounded-2xl"
                 />
               </div>
 
               {/* Floating Feature Tag */}
               <div className="w-full p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-bold text-slate-900">CO₂ &amp; ABC Dry Powder</p>
-                  <p className="text-[11px] text-slate-500">Available for commercial &amp; industrial sites</p>
+                  <p className="text-xs font-bold text-slate-900">Fire Extinguishers</p>
+                  <p className="text-[11px] text-slate-500">Powder, CO₂, Water, Foam &amp; Chemical</p>
                 </div>
                 <button
-                  onClick={() => onOpenEnquiry && onOpenEnquiry('CO₂ Fire Extinguisher')}
+                  onClick={() => onOpenEnquiry && onOpenEnquiry('Fire Extinguishers')}
                   className="px-3 py-1.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold shadow-sm transition-colors"
                 >
                   Enquire

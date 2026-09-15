@@ -7,6 +7,7 @@ const CATEGORIES = [
   'Fire Extinguishers',
   'Fire Hydrant Systems',
   'Fire Safety Equipment',
+  'Safety Signage',
   'Accessories',
 ];
 
