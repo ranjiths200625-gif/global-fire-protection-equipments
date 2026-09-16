@@ -40,12 +40,20 @@ const AdminGallery = () => {
     fetchGallery();
   }, []);
 
+  const fileToDataUrl = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this gallery photo?')) return;
     try {
       await galleryService.delete(id);
       addToast('Gallery photo deleted.', 'success');
-      fetchGallery();
+      await fetchGallery();
     } catch (err) {
       addToast('Failed to delete photo.', 'error');
     }
@@ -59,25 +67,41 @@ const AdminGallery = () => {
     }
 
     setUploading(true);
-    const data = new FormData();
-    data.append('title', formData.title || 'Fire Safety Equipment');
-    data.append('category', formData.category);
+    let resolvedImage = formData.image.trim();
 
+    if (selectedFile) {
+      try {
+        resolvedImage = await fileToDataUrl(selectedFile);
+      } catch (err) {
+        console.warn('Could not read image file:', err);
+      }
+    }
+
+    const payload = {
+      title: formData.title.trim() || 'Fire Safety Equipment',
+      category: formData.category,
+      image: resolvedImage || '/assets/products/fire-extinguishers.jpg',
+    };
+
+    const data = new FormData();
+    data.append('title', payload.title);
+    data.append('category', payload.category);
+    data.append('imageUrl', payload.image);
     if (selectedFile) {
       data.append('image', selectedFile);
     } else {
-      data.append('image', formData.image);
+      data.append('image', payload.image);
     }
 
     try {
-      await galleryService.create(data);
+      await galleryService.create(payload);
       addToast('Gallery image added successfully.', 'success');
       setModalOpen(false);
       setFormData({ title: '', category: 'Fire Extinguishers', image: '' });
       setSelectedFile(null);
-      fetchGallery();
+      await fetchGallery();
     } catch (err) {
-      addToast(err.response?.data?.message || 'Failed to upload image.', 'error');
+      addToast(err.response?.data?.message || err.message || 'Failed to upload image.', 'error');
     } finally {
       setUploading(false);
     }
@@ -184,13 +208,39 @@ const AdminGallery = () => {
               </div>
 
               <div>
-                <label className="block text-slate-700 font-bold mb-1">Choose File</label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => setSelectedFile(e.target.files[0])}
-                  className="w-full text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-slate-100 file:text-slate-800 hover:file:bg-slate-200 cursor-pointer"
-                />
+                <label className="block text-slate-700 font-bold mb-1">Select Image</label>
+                <div className="space-y-2">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setSelectedFile(e.target.files[0])}
+                    className="w-full text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-slate-100 file:text-slate-800 hover:file:bg-slate-200 cursor-pointer"
+                  />
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] text-slate-400 font-semibold uppercase">Or Image URL:</span>
+                    <input
+                      type="text"
+                      value={formData.image}
+                      onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                      placeholder="/assets/products/... or https://..."
+                      className="flex-1 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-600"
+                    />
+                  </div>
+                  {(selectedFile || formData.image) && (
+                    <div className="flex items-center gap-3 p-2 bg-slate-50 rounded-xl border border-slate-200">
+                      <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 p-1 flex items-center justify-center shrink-0">
+                        <img
+                          src={selectedFile ? URL.createObjectURL(selectedFile) : formData.image}
+                          alt="Preview"
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
+                      <span className="text-[11px] text-slate-500 truncate">
+                        {selectedFile ? selectedFile.name : formData.image}
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="pt-4 flex justify-end gap-2">

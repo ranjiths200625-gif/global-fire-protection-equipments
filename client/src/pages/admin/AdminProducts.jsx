@@ -45,6 +45,14 @@ const AdminProducts = () => {
     fetchProducts();
   }, []);
 
+  const fileToDataUrl = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
   const handleOpenAdd = () => {
     setEditingProduct(null);
     setFormData({
@@ -67,7 +75,7 @@ const AdminProducts = () => {
       description: prod.description,
       features: Array.isArray(prod.features) ? prod.features.join(', ') : '',
       image: prod.image || '',
-      active: prod.active,
+      active: prod.active !== false,
     });
     setSelectedFile(null);
     setModalOpen(true);
@@ -92,36 +100,55 @@ const AdminProducts = () => {
     }
 
     setSaving(true);
-    const data = new FormData();
-    data.append('name', formData.name);
-    data.append('category', formData.category);
-    data.append('description', formData.description);
-    data.append('active', formData.active);
+    let resolvedImage = formData.image || '';
+
+    if (selectedFile) {
+      try {
+        resolvedImage = await fileToDataUrl(selectedFile);
+      } catch (err) {
+        console.warn('Could not read image file, using fallback', err);
+      }
+    }
 
     const featureArr = formData.features
       .split(',')
       .map((f) => f.trim())
       .filter(Boolean);
-    data.append('features', JSON.stringify(featureArr));
 
+    const payload = {
+      name: formData.name.trim(),
+      category: formData.category,
+      description: formData.description.trim(),
+      features: featureArr,
+      image: resolvedImage || '/assets/products/fire-extinguishers.jpg',
+      active: formData.active,
+    };
+
+    const data = new FormData();
+    data.append('name', payload.name);
+    data.append('category', payload.category);
+    data.append('description', payload.description);
+    data.append('active', payload.active);
+    data.append('features', JSON.stringify(featureArr));
+    data.append('imageUrl', payload.image);
     if (selectedFile) {
       data.append('image', selectedFile);
-    } else if (formData.image) {
-      data.append('image', formData.image);
+    } else {
+      data.append('image', payload.image);
     }
 
     try {
       if (editingProduct) {
-        await productService.update(editingProduct._id, data);
+        await productService.update(editingProduct._id, payload);
         addToast('Product updated successfully.', 'success');
       } else {
-        await productService.create(data);
+        await productService.create(payload);
         addToast('Product added successfully.', 'success');
       }
       setModalOpen(false);
-      fetchProducts();
+      await fetchProducts();
     } catch (err) {
-      addToast(err.response?.data?.message || 'Failed to save product.', 'error');
+      addToast(err.response?.data?.message || err.message || 'Failed to save product.', 'error');
     } finally {
       setSaving(false);
     }
@@ -293,14 +320,39 @@ const AdminProducts = () => {
               </div>
 
               <div>
-                <label className="block text-slate-700 font-bold mb-1">Upload Image</label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => setSelectedFile(e.target.files[0])}
-                  className="w-full text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-slate-100 file:text-slate-800 hover:file:bg-slate-200 cursor-pointer"
-                />
-                <p className="text-[11px] text-slate-400 mt-1">Leave empty to retain existing graphic.</p>
+                <label className="block text-slate-700 font-bold mb-1">Product Image</label>
+                <div className="space-y-2">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setSelectedFile(e.target.files[0])}
+                    className="w-full text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-slate-100 file:text-slate-800 hover:file:bg-slate-200 cursor-pointer"
+                  />
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] text-slate-400 font-semibold uppercase">Or Image URL:</span>
+                    <input
+                      type="text"
+                      value={formData.image}
+                      onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                      placeholder="/assets/products/... or https://..."
+                      className="flex-1 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-600"
+                    />
+                  </div>
+                  {(selectedFile || formData.image) && (
+                    <div className="flex items-center gap-3 p-2 bg-slate-50 rounded-xl border border-slate-200">
+                      <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 p-1 flex items-center justify-center shrink-0">
+                        <img
+                          src={selectedFile ? URL.createObjectURL(selectedFile) : formData.image}
+                          alt="Preview"
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
+                      <span className="text-[11px] text-slate-500 truncate">
+                        {selectedFile ? selectedFile.name : formData.image}
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="flex items-center gap-2 pt-2">

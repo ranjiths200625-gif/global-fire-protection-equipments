@@ -81,9 +81,9 @@ const AdminServices = () => {
         addToast('Service created successfully.', 'success');
       }
       setModalOpen(false);
-      fetchServices();
+      await fetchServices();
     } catch (err) {
-      addToast('Failed to save service.', 'error');
+      addToast(err.response?.data?.message || err.message || 'Failed to save service.', 'error');
     } finally {
       setSaving(false);
     }
