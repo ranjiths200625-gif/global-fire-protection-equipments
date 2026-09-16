@@ -37,8 +37,25 @@ export const AuthProvider = ({ children }) => {
     setAdmin(null);
   };
 
+  const updateCredentials = async (data) => {
+    const result = await authService.updateCredentials(data);
+    if (result.admin) {
+      setAdmin(result.admin);
+    }
+    return result;
+  };
+
   return (
-    <AuthContext.Provider value={{ admin, loading, login, logout, isAuthenticated: !!admin }}>
+    <AuthContext.Provider
+      value={{
+        admin,
+        loading,
+        login,
+        logout,
+        updateCredentials,
+        isAuthenticated: !!admin,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
